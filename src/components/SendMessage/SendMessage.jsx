@@ -7,7 +7,6 @@ import {
   StyledInput,
   StyledSubmitButton,
 } from './SendMessage.styled';
-import { StyledButton } from "../Welcome/Welcome.styled";
 
 const SendMessage = ({ scroll }) => {
   const [message, setMessage] = useState("");
