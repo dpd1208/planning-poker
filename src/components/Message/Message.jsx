@@ -1,12 +1,15 @@
 import React from "react";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  ChatBubble,
+} from './Message.styled';
 
 const Message = ({ message }) => {
   const [user] = useAuthState(auth);
   console.log(message.avatar);
   return (
-    <div
+    <ChatBubble
       className={`chat-bubble ${message.uid === user.uid ? "right" : ""}`}>
       <img
         className="chat-bubble__left"
@@ -17,7 +20,7 @@ const Message = ({ message }) => {
         <p className="user-name">{message.name}</p>
         <p className="user-message">{message.text}</p>
       </div>
-    </div>
+    </ChatBubble>
   );
 };
 

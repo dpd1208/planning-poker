@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { auth, db } from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  StyledForm,
+  StyledLabel,
+  StyledInput,
+  StyledSubmitButton,
+} from './SendMessage.styled';
+import { StyledButton } from "../Welcome/Welcome.styled";
 
 const SendMessage = ({ scroll }) => {
   const [message, setMessage] = useState("");
@@ -23,11 +30,11 @@ const SendMessage = ({ scroll }) => {
     scroll.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <form onSubmit={(event) => sendMessage(event)} className="send-message">
-      <label htmlFor="messageInput" hidden>
+    <StyledForm onSubmit={(event) => sendMessage(event)} className="send-message">
+      <StyledLabel htmlFor="messageInput" hidden>
         Enter Message
-      </label>
-      <input
+      </StyledLabel>
+      <StyledInput
         id="messageInput"
         name="messageInput"
         type="text"
@@ -36,8 +43,8 @@ const SendMessage = ({ scroll }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
-    </form>
+      <StyledSubmitButton type="submit">Send</StyledSubmitButton>
+    </StyledForm>
   );
 };
 
