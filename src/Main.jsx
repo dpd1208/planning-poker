@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import PropTypes from 'prop-types';
 import ChatBox from "./components/ChatBox/ChatBox";
-import Timer from './components/Timer/Timer';
-import Cards from './components/Cards/Cards';
+import PokerTable from "./components/PokerTable/PokerTable";
 import SendMessage from "./components/SendMessage/SendMessage";
 import {
   Wrapper,
@@ -13,8 +12,7 @@ const Main = ({ className, cards }) => {
   return (
     <Wrapper
       className={className}>
-        <Timer />
-        <Cards cards={cards} />
+        <PokerTable cards={cards} />
         <ChatBox />
         {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
         <span ref={scroll}></span>

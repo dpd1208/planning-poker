@@ -16,22 +16,21 @@ import {
 } from './Cards.styled';
 
 const Cards = ({ cards }) => {
-  console.log('liii ', cards);
   const [points, setPoints] = useState([]);
+  const [average, setAverage] = useState();
 
-  const sendPoints = async (event) => {
-    event.preventDefault();
-    if (points.trim() === "") {
-      alert("Enter points");
-      return;
+  const sendPoints = async (e, card) => {
+    if (typeof card === 'number') {
+      setPoints(card);
     }
+    e.preventDefault();
     const { displayName } = auth.currentUser;
     await addDoc(collection(db, "points"), {
         points: points,
         name: displayName,
         createdAt: serverTimestamp(),
     });
-    setPoints("");
+    setPoints('');
   };
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const Cards = ({ cards }) => {
   return (
     <CardSectionWrapper className="cards">
       {cards?.map((card) => (
-          <Card>{card}</Card>
+          <Card onClick={(e) => sendPoints(e, Number(card))}>{card}</Card>
       ))}
     </CardSectionWrapper>
   );

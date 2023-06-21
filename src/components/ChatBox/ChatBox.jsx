@@ -39,7 +39,7 @@ const ChatBox = () => {
   }, []);
 
   return (
-    <ChatBoxWrapper className="chat-box">
+    <ChatBoxWrapper className="chat-box">Send your team a message
       <MessagesWrapper className="messages-wrapper">
         {messages.map((message) => (
           <Message key={message.id} message={message} />

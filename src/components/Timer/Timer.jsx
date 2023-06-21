@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
-import { Button } from './Timer.styled';
+import { TimerWrapper, Button } from './Timer.styled';
 
 const Timer = () => {
     const [timeLeft, setTimeLeft] = useState(null);
@@ -27,12 +27,12 @@ const Timer = () => {
    }, [timeLeft]);
  
  return (
-   <React.Fragment>
+   <TimerWrapper>
      {timeLeft}
      <Button onClick={()=>setTimeLeft(5)}>
              Start Timer
      </Button>
-   </React.Fragment>
+   </TimerWrapper>
   )
  }
 
