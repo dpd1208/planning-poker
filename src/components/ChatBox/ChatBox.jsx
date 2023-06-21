@@ -9,6 +9,7 @@ import {
 import { db } from "../../firebase";
 import Message from "../Message/Message";
 import SendMessage from "../SendMessage/SendMessage";
+import Cards from '../Cards/Cards';
 import {
   ChatBoxWrapper,
   MessagesWrapper,
@@ -44,6 +45,7 @@ const ChatBox = () => {
         {messages.map((message) => (
           <Message key={message.id} message={message} />
         ))}
+        <Cards />
       </MessagesWrapper>
       {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
       <span ref={scroll}></span>
