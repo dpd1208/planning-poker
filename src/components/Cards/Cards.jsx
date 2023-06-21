@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import {
   query,
   collection,
@@ -15,6 +16,7 @@ import {
 } from './Cards.styled';
 
 const Cards = ({ cards }) => {
+  console.log('liii ', cards);
   const [points, setPoints] = useState([]);
 
   const sendPoints = async (event) => {
@@ -54,12 +56,20 @@ const Cards = ({ cards }) => {
 
   return (
     <CardSectionWrapper className="cards">
-        {cards.map((card) => {
-            console.log('lii ', card);
-          return <Card key={card} cardNumber={card} />
-        })}
+      {cards?.map((card) => (
+          <Card>{card}</Card>
+      ))}
     </CardSectionWrapper>
   );
 };
+
+Cards.propTypes = {
+  className: PropTypes.string
+};
+
+Cards.defaultProps = {
+  className: null,
+};
+
 
 export default Cards;

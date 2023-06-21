@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import PropTypes from 'prop-types';
 import {
   query,
   collection,
@@ -8,7 +9,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import Message from "../Message/Message";
-import SendMessage from "../SendMessage/SendMessage";
 import Cards from '../Cards/Cards';
 import {
   ChatBoxWrapper,
@@ -17,7 +17,6 @@ import {
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
-  const scroll = useRef();
 
   useEffect(() => {
     const q = query(
@@ -47,11 +46,16 @@ const ChatBox = () => {
         ))}
         <Cards />
       </MessagesWrapper>
-      {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
-      <span ref={scroll}></span>
-      <SendMessage scroll={scroll} />
     </ChatBoxWrapper>
   );
+};
+
+ChatBox.propTypes = {
+  className: PropTypes.string
+};
+
+ChatBox.defaultProps = {
+  className: null,
 };
 
 export default ChatBox;

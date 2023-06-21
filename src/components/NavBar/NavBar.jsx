@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import GoogleSignin from "../../img/btn_google_signin_dark_pressed_web.png";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -23,7 +24,7 @@ const NavBar = () => {
 
   return (
     <NavBarWrapper className="nav-bar">
-      <HeaderTitle>React Chat</HeaderTitle>
+      <HeaderTitle>Planning Poker</HeaderTitle>
       {user ? (
         <AuthButton onClick={signOut} className="sign-out" type="button">
           Sign Out
@@ -40,6 +41,14 @@ const NavBar = () => {
       )}
     </NavBarWrapper>
   );
+};
+
+NavBar.propTypes = {
+  className: PropTypes.string
+};
+
+NavBar.defaultProps = {
+  className: null,
 };
 
 export default NavBar;

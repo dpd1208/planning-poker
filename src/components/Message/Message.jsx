@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
@@ -22,6 +23,14 @@ const Message = ({ message }) => {
       </div>
     </ChatBubble>
   );
+};
+
+Message.propTypes = {
+  className: PropTypes.string
+};
+
+Message.defaultProps = {
+  className: null,
 };
 
 export default Message;

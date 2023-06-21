@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form `
+  width: 100%;
+  height: 8%;
   
 `;
 

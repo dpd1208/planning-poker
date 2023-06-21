@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { auth, db } from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import {
@@ -45,6 +46,14 @@ const SendMessage = ({ scroll }) => {
       <StyledSubmitButton type="submit">Send</StyledSubmitButton>
     </StyledForm>
   );
+};
+
+SendMessage.propTypes = {
+  className: PropTypes.string
+};
+
+SendMessage.defaultProps = {
+  className: null,
 };
 
 export default SendMessage;
